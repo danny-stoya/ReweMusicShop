@@ -1,7 +1,8 @@
 use music_company;
 
-insert into clients (name) values ('Ratke and Sons');
-insert into clients (name) values ('Borer, Emard and Blick');
+insert into music_companies (name) values ('Ratke and Sons');
+insert into music_companies (name) values ('Borer, Emard and Blick');
+
 
 insert into clients (name, dob) values ('Codee', '2002-08-26');
 insert into clients (name, dob) values ('Des', '2020-01-11');

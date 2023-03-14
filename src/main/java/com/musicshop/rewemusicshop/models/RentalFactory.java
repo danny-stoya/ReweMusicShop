@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RentalFactory {
 
-    public Rentable rentStudio(Studio studio, Client client) {
-
-    }
+//    public Rentable rentStudio(Studio studio, Client client) {
+//
+//    }
 }

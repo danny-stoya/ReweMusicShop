@@ -10,25 +10,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class StudioService implements Rentable {
+public class StudioService {
     private final StudioRepo studioRepo;
 
     private Studio findById(Long id) {
         return studioRepo.findById(id).orElseThrow(() -> new ModelNotFoundException("Studio"));
     }
-
-    private Studio book(Long id, int hours) {
-        Studio studio = findById(id);
-        if (studio.getDailyHourLimit() < hours) {
-            throw new InvalidRentPeriodException("Rent period too large.");
-        }
-        studio.setDailyHourLimit(studio.getDailyHourLimit() - hours);
-
-
-    }
-
-    @Override
-    public boolean canRent() {
-        return false;
-    }
+//    private Studio book(Long id, int hours) {
+//        Studio studio = findById(id);
+//        if (studio.getDailyHourLimit() < hours) {
+//            throw new InvalidRentPeriodException("Rent period too large.");
+//        }
+//        studio.setDailyHourLimit(studio.getDailyHourLimit() - hours);
+//
+//
+//    }
 }

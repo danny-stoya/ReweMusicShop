@@ -1,13 +1,13 @@
 package com.musicshop.rewemusicshop.web;
 
 import com.musicshop.rewemusicshop.models.Client;
+import com.musicshop.rewemusicshop.models.dtos.ClientRegisterDto;
 import com.musicshop.rewemusicshop.services.ClientService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,5 +37,11 @@ public class ClientController {
     @GetMapping("/{name}")
     public ResponseEntity<Client> findByName(@PathVariable String name) {
         return ResponseEntity.ok(clientService.findByName(name));
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<Client> register(@RequestBody @Valid ClientRegisterDto registerDto) {
+        return ResponseEntity.ok(clientService.register(registerDto));
+
     }
 }
